@@ -13,8 +13,8 @@ const Home = () => {
     return (
         <div className="App">
             <Navbar></Navbar>
-            <div id="body">
-
+            <div id="body" style={{height:"120vh"}}>
+                hi there
             </div>
         </div>
     )

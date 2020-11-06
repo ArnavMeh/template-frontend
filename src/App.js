@@ -21,7 +21,8 @@ const App = () => {
   const [auth, setAuth] = useState({isAuth: false, loading: true, fetched: false})
 
   useEffect(() => {
-    document.title = "HSE Safety"
+    document.title = "HSE Template"
+
     if (!auth.user && !auth.fetched){
       console.log('test token')
       testToken()
@@ -31,6 +32,7 @@ const App = () => {
       console.log("hi there")
     }
     console.log(auth)
+
   }, [auth])
 
   const testToken = async () => {
@@ -43,7 +45,7 @@ const App = () => {
       axios.defaults.headers.common['Authorization'] =`Bearer ${token}`
 
       try{
-        const res = await axios.get(`${process.env.REACT_APP_SAFETY_API}/user/?timestamp=${new Date().getTime()}`)
+        const res = await axios.get(`${process.env.REACT_APP_AUTH_API}/user/?timestamp=${new Date().getTime()}`)
         console.log(res.data)
 
         if (!res.data.errors){
